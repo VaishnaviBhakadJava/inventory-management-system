@@ -1,0 +1,646 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+min-height:100vh;
+
+background:linear-gradient(135deg,#4facfe,#00d2ff,#667eea,#764ba2);
+
+background-size:400% 400%;
+
+animation:bgMove 12s infinite alternate;
+
+display:flex;
+
+flex-direction:column;
+
+color:white;
+
+overflow-x:hidden;
+}
+
+/* Header */
+
+header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 7%;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.logo i{
+
+width:50px;
+height:50px;
+
+border-radius:50%;
+
+background:white;
+
+color:#4f46e5;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+}
+
+.welcome{
+
+font-size:18px;
+}
+
+.logout{
+
+text-decoration:none;
+
+padding:12px 22px;
+
+background:#ff5b6e;
+
+color:white;
+
+border-radius:10px;
+
+transition:.3s;
+}
+
+.logout:hover{
+
+background:#ff3b52;
+}
+
+/* Container */
+
+.container{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+}
+
+/* Card */
+
+.card{
+
+width:100%;
+
+max-width:520px;
+
+padding:40px;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(18px);
+
+border-radius:25px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+
+text-align:center;
+}
+
+.icon{
+
+width:90px;
+height:90px;
+
+background:white;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin:auto;
+
+color:#4f46e5;
+
+font-size:38px;
+
+margin-bottom:20px;
+}
+
+.card h1{
+
+margin-bottom:10px;
+
+font-size:34px;
+}
+
+.card p{
+
+margin-bottom:30px;
+
+color:#f2f2f2;
+}
+
+/* Form */
+
+.input-box{
+
+text-align:left;
+
+margin-bottom:22px;
+}
+
+.input-box label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+}
+
+.input-box input{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:10px;
+
+font-size:16px;
+
+outline:none;
+}
+
+.buttons{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:15px;
+
+margin-top:20px;
+}
+
+.back{
+
+flex:1;
+
+text-decoration:none;
+
+padding:14px;
+
+background:#6366f1;
+
+color:white;
+
+border-radius:10px;
+
+text-align:center;
+
+font-weight:bold;
+
+transition:.3s;
+}
+
+button{
+
+flex:2;
+
+padding:14px;
+
+border:none;
+
+border-radius:10px;
+
+background:#10b981;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+button:hover{
+
+background:#059669;
+
+transform:translateY(-3px);
+}
+
+.back:hover{
+
+background:#4f46e5;
+}
+
+/* Floating Circles */
+
+.circle{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.12);
+
+animation:float 8s infinite ease-in-out;
+}
+
+.c1{
+
+width:180px;
+height:180px;
+
+left:-70px;
+top:120px;
+}
+
+.c2{
+
+width:220px;
+height:220px;
+
+right:-80px;
+bottom:-70px;
+}
+
+/* Animation */
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+}
+
+50%{
+
+transform:translateY(-25px);
+}
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+background-position:left;
+}
+
+100%{
+
+background-position:right;
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+text-align:center;
+}
+
+.card{
+
+padding:30px 25px;
+}
+
+.card h1{
+
+font-size:28px;
+}
+
+.buttons{
+
+flex-direction:column;
+}
+
+}
+
+@media(max-width:480px){
+
+.container{
+
+padding:15px;
+}
+
+.card{
+
+padding:25px 20px;
+}
+
+.icon{
+
+width:70px;
+height:70px;
+
+font-size:30px;
+}
+
+.card h1{
+
+font-size:24px;
+}
+
+.input-box input{
+
+padding:12px;
+}
+
+.circle{
+
+display:none;
+}
+
+}
+
+/* ===================================
+      Tablet Devices (768px)
+=================================== */
+
+@media screen and (max-width:768px){
+
+header{
+
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+
+    padding:15px;
+}
+
+.logo{
+
+    justify-content:center;
+}
+
+.welcome{
+
+    font-size:16px;
+    text-align:center;
+}
+
+.logout{
+
+    width:180px;
+    text-align:center;
+}
+
+.container{
+
+    padding:20px;
+}
+
+.card{
+
+    width:100%;
+    max-width:500px;
+
+    padding:30px 25px;
+}
+
+.card h1{
+
+    font-size:28px;
+}
+
+.card p{
+
+    font-size:15px;
+}
+
+.icon{
+
+    width:75px;
+    height:75px;
+
+    font-size:30px;
+}
+
+.input-box input{
+
+    font-size:15px;
+    padding:13px;
+}
+
+.buttons{
+
+    flex-direction:column;
+    gap:15px;
+}
+
+.back,
+button{
+
+    width:100%;
+}
+
+}
+
+
+/* ===================================
+      Mobile Devices (480px)
+=================================== */
+
+@media screen and (max-width:480px){
+
+body{
+
+    overflow-x:hidden;
+}
+
+header{
+
+    padding:15px 10px;
+}
+
+.logo h2{
+
+    font-size:20px;
+}
+
+.logo i{
+
+    width:42px;
+    height:42px;
+
+    font-size:18px;
+}
+
+.welcome{
+
+    font-size:15px;
+}
+
+.logout{
+
+    width:100%;
+    padding:12px;
+}
+
+.container{
+
+    padding:15px;
+}
+
+.card{
+
+    padding:25px 18px;
+
+    border-radius:18px;
+}
+
+.card h1{
+
+    font-size:24px;
+}
+
+.card p{
+
+    font-size:14px;
+}
+
+.icon{
+
+    width:65px;
+    height:65px;
+
+    font-size:26px;
+}
+
+.input-box{
+
+    margin-bottom:18px;
+}
+
+.input-box label{
+
+    font-size:15px;
+}
+
+.input-box input{
+
+    padding:12px;
+
+    font-size:14px;
+}
+
+.back,
+button{
+
+    padding:13px;
+
+    font-size:15px;
+}
+
+.circle{
+
+    display:none;
+}
+
+}
+
+
+/* ===================================
+      Small Phones (360px)
+=================================== */
+
+@media screen and (max-width:360px){
+
+.card{
+
+    padding:20px 15px;
+}
+
+.card h1{
+
+    font-size:22px;
+}
+
+.card p{
+
+    font-size:13px;
+}
+
+.icon{
+
+    width:55px;
+    height:55px;
+
+    font-size:22px;
+}
+
+.logo h2{
+
+    font-size:18px;
+}
+
+.welcome{
+
+    font-size:14px;
+}
+
+.input-box label{
+
+    font-size:14px;
+}
+
+.input-box input{
+
+    font-size:13px;
+    padding:10px;
+}
+
+.back,
+button{
+
+    font-size:14px;
+    padding:12px;
+}
+
+}
