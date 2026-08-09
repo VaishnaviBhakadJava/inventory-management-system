@@ -1,29 +1,40 @@
 # Inventory Management System
 
+A web-based Inventory Management System developed using Java, Servlets, JSP, JDBC, Oracle Database, HTML, and CSS.
+
+The application provides separate functionalities for **Admin** and **Customer** users. Admins can manage products, while customers can register, log in, view available products, and purchase products.
+
+This project was developed as part of my practical learning in **Core Java and Advanced Java** to gain hands-on experience in Java web application development, database connectivity, CRUD operations, authentication, and session management.
+
+---
+
 ## 📌 Project Overview
 
-The Inventory Management System is a web-based application developed using Java technologies to manage products and customer purchases.
+The Inventory Management System is designed to provide a simple web-based platform for managing products and customer purchases.
 
-The application provides separate functionalities for Admin and Customer users. Admins can manage products, while customers can register, log in, view available products, and purchase products.
+The application consists of two main user roles:
 
-The project was developed to apply concepts learned in Core Java and Advanced Java, including Servlets, JSP, JDBC, session management, and Oracle database connectivity.
+- **Admin**
+- **Customer**
+
+The Admin is responsible for managing inventory, while Customers can register, authenticate themselves, view products, and purchase products.
 
 ---
 
 ## 👨‍💻 User Roles
 
-### Admin
+### 🔑 Admin
 
 The Admin can:
 
 - Login
 - Add new products
+- View products
 - Update existing products
 - Delete products
-- View products
 - Logout
 
-### Customer
+### 👤 Customer
 
 The Customer can:
 
@@ -37,30 +48,31 @@ The Customer can:
 
 ## ✨ Features
 
-### Authentication
+### 🔐 Authentication
 
 - Admin login
 - Customer registration
 - Customer login
 - Logout functionality
 
-### Product Management
+### 📦 Product Management
 
 - Add product
 - View products
 - Update product
 - Delete product
 
-### Customer Operations
+### 🛒 Customer Operations
 
 - View available products
 - Purchase products
 
-### Session Management
+### 🔒 Session Management
 
-- Maintains user session after successful login
-- Restricts access to pages based on login/session status
-- Provides logout functionality to invalidate the session
+- Creates a session after successful login
+- Maintains the logged-in user's session
+- Restricts access to session-protected pages
+- Invalidates the session during logout
 
 ---
 
@@ -68,70 +80,183 @@ The Customer can:
 
 | Technology | Purpose |
 |------------|---------|
-| Java | Application development |
-| JDBC | Database connectivity |
-| Servlets | Request processing and business flow |
-| JSP | Dynamic web pages |
-| HTML | Page structure |
-| CSS | Styling and user interface |
-| Oracle | Database management |
-| Apache Tomcat | Web application server |
-| Eclipse | Development environment |
+| **Java** | Application development |
+| **JDBC** | Database connectivity |
+| **Servlets** | Request processing and application flow |
+| **JSP** | Dynamic web pages |
+| **HTML** | Web page structure |
+| **CSS** | User interface styling |
+| **Oracle Database** | Data storage |
+| **Apache Tomcat** | Web application server |
+| **Eclipse IDE** | Development environment |
 
 ---
 
 ## 🏗️ Project Architecture
 
-The application follows a layered approach using Servlets, DAO classes, JDBC, and Oracle.
+The application follows a layered approach using JSP/HTML, Servlets, DAO classes, JDBC, and Oracle Database.
 
 ```text
-Client
-  │
-  ▼
-HTML / JSP / CSS
-  │
-  ▼
-Servlet
-  │
-  ▼
-DAO
-  │
-  ▼
-JDBC
-  │
-  ▼
-Oracle Database
+                    Client
+                      │
+                      ▼
+              HTML / JSP / CSS
+                      │
+                      ▼
+                  Servlet
+                      │
+                      ▼
+                     DAO
+                      │
+                      ▼
+                    JDBC
+                      │
+                      ▼
+              Oracle Database
 ```
 
+### Main Components
 
+**JSP / HTML / CSS**
 
-### Database Configuration
+Responsible for the presentation layer and user interface.
 
-The project uses Oracle Database for data storage.
+**Servlets**
 
-For security reasons, the actual database credentials are not included in this repository.
+Handle HTTP requests, process user actions, and control the application flow.
+
+**DAO (Data Access Object)**
+
+Handles database-related operations such as inserting, retrieving, updating, and deleting data.
+
+**JDBC**
+
+Provides connectivity between the Java application and Oracle Database.
+
+**Oracle Database**
+
+Stores application data such as customer, admin, and product information.
+
+---
+
+## 📂 Project Structure
+
+```text
+estore/
+│
+├── Java Resources
+│   └── src/main/java/
+│       │
+│       └── com/
+│           │
+│           ├── bean/
+│           │   ├── AdminBean.java
+│           │   ├── CustomerBean.java
+│           │   └── ProductBean.java
+│           │
+│           ├── dao/
+│           │   ├── AddProductDAO.java
+│           │   ├── AdminLoginDAO.java
+│           │   ├── BuyProductDAO.java
+│           │   ├── CustomerLoginDAO.java
+│           │   ├── CustomerRegisterDAO.java
+│           │   ├── DeleteProductDAO.java
+│           │   ├── UpdateProductDAO.java
+│           │   ├── ViewProductDAO.java
+│           │   ├── DBConnect.java
+│           │   └── DBInfoExample.java
+│           │
+│           └── servlet/
+│               ├── AdminLoginServlet.java
+│               ├── AddProductServlet.java
+│               ├── BuyProductServlet.java
+│               ├── CustomerLoginServlet.java
+│               ├── CustomerRegisterServlet.java
+│               ├── DeleteProductServlet.java
+│               ├── UpdateProductServlet.java
+│               └── LogoutServlet.java
+│
+├── src/main/webapp/
+│   ├── HTML files
+│   ├── JSP files
+│   ├── CSS files
+│   │
+│   └── WEB-INF/
+│       ├── web.xml
+│       └── lib/
+│           └── ojdbc17.jar
+│
+├── .gitignore
+└── README.md
+```
+
+> **Note:** The actual project structure may contain additional files. The above structure highlights the main application components.
+
+---
+
+## 🗄️ Database
+
+The application uses **Oracle Database** for persistent data storage.
+
+JDBC is used to establish communication between the Java application and Oracle Database.
+
+The application performs database operations such as:
+
+- `INSERT`
+- `SELECT`
+- `UPDATE`
+- `DELETE`
+
+The database stores information related to:
+
+- Admin users
+- Customers
+- Products
+- Product quantity and purchase-related data
+
+### Database Connectivity
+
+The project uses:
+
+- Oracle JDBC Driver
+- `DriverManager`
+- `Connection`
+- `PreparedStatement`
+- `ResultSet`
+
+---
+
+## 🔐 Database Configuration
+
+For security reasons, actual database credentials are **not included in this repository**.
 
 The repository contains:
 
-`DBInfoExample.java`
+```text
+DBInfoExample.java
+```
 
-as a template.
+which acts as a template for local database configuration.
 
-After downloading/cloning the project:
+### Local Configuration
+
+After cloning the project:
 
 1. Navigate to:
-   `src/main/java/com/dao/`
+
+```text
+src/main/java/com/dao/
+```
 
 2. Open `DBInfoExample.java`.
 
-3. Create a new file named:
-   `DBInfo.java`
+3. Create a local file named:
 
-4. Copy the structure from `DBInfoExample.java`.
+```text
+DBInfo.java
+```
 
-5. Replace `YOUR_USERNAME` and `YOUR_PASSWORD` with your local Oracle credentials.
-
-6. Make sure `DBInfo.java` is present in your local project but is not committed to GitHub.
+4. Configure it using your own Oracle database credentials.
 
 Example:
 
@@ -148,63 +273,39 @@ public interface DBInfo {
 
     String dbPass = "YOUR_PASSWORD";
 }
-
-
 ```
 
+5. Make sure the required Oracle database and tables are available.
 
-## 🗄️ Database
+> **Important:** `DBInfo.java` is intentionally excluded from GitHub using `.gitignore` because it contains local database credentials.
 
-The application uses Oracle Database for persistent data storage.
+---
 
-JDBC is used to establish a connection between the Java application and Oracle Database.
-
-The application performs database operations such as:
-
-- Insert
-- Select
-- Update
-- Delete
-
-The main data managed by the application includes:
-
-- Admin information
-- Customer information
-- Product information
-- Product quantity and purchase-related information
-
-### Database Configuration
-
-For security reasons, actual database credentials are not included in this repository.
-
-`DBInfoExample.java` is provided as a template for configuring the database connection locally.
-
-The actual `DBInfo.java` file is excluded from Git using `.gitignore`.
-
-
-## 🔐 Security / Session Management
+## 🔒 Security and Session Management
 
 The application uses HTTP sessions to maintain the login state of Admin and Customer users.
 
-### Session Management
+### Session Handling
 
 - A session is created after successful login.
 - User information is stored in the session.
-- Session validation is used to restrict access to protected pages.
+- Protected pages can verify whether a valid session exists.
 - Logout invalidates the active session.
-- Users cannot access session-protected pages after logout.
+- Session-protected functionality is restricted to authenticated users.
 
-Database operations use `PreparedStatement` for executing SQL queries.
+### Database Query Handling
 
+The application uses `PreparedStatement` for database operations instead of directly constructing SQL queries with user input.
 
+---
 
 ## 🚀 How to Run the Project
 
 ### Prerequisites
 
-Make sure the following are installed:
+Install the following:
 
-- JDK
+- Java JDK
 - Eclipse IDE
 - Apache Tomcat
 - Oracle Database
@@ -212,37 +313,57 @@ Make sure the following are installed:
 
 ### Setup Steps
 
-1. Clone or download this repository.
+1. Clone the repository:
 
-2. Import the project into Eclipse as a Dynamic Web Project.
+```bash
+git clone https://github.com/VaishnaviBhakadJava/inventory-management-system.git
+```
 
-3. Configure Apache Tomcat in Eclipse.
+2. Import the project into Eclipse as a **Dynamic Web Project**.
 
-4. Configure the Oracle Database and create the required tables.
+3. Configure **Apache Tomcat** in Eclipse.
 
-5. Navigate to:
+4. Configure the Oracle Database.
 
-   `src/main/java/com/dao/`
+5. Create the required database tables.
 
-6. Create a local `DBInfo.java` file using `DBInfoExample.java` as a reference.
+6. Navigate to:
 
-7. Add your local Oracle database username and password to `DBInfo.java`.
+```text
+src/main/java/com/dao/
+```
 
-8. Make sure the Oracle JDBC driver is available in the project.
+7. Create `DBInfo.java` using `DBInfoExample.java` as a reference.
 
-9. Add the project to the Tomcat server.
+8. Add your local Oracle username and password to `DBInfo.java`.
 
-10. Start the Tomcat server.
+9. Make sure the Oracle JDBC driver is available in the project.
 
-11. Open the application in a browser using the appropriate Tomcat URL.
+10. Add the project to the Tomcat server.
 
+11. Start the Tomcat server.
 
+12. Open the application in a browser using the appropriate Tomcat URL.
+
+---
 
 ## 📷 Screenshots
 
 Screenshots of the application will be added here.
 
+Planned screenshots include:
 
+- Admin Login
+- Admin Dashboard
+- Add Product
+- View Products
+- Update/Delete Product
+- Customer Registration
+- Customer Login
+- Customer Product View
+- Buy Product
+
+---
 
 ## 📚 What I Learned
 
@@ -253,17 +374,19 @@ Through this project, I gained practical experience in:
 - JSP development
 - JDBC database connectivity
 - Oracle SQL
-- DAO design and database operations
+- DAO-based database operations
 - CRUD operations
-- PreparedStatement
+- `PreparedStatement`
 - User authentication
 - HTTP session management
 - Login and logout functionality
-- Deploying web applications using Apache Tomcat
-- Organizing Java code using packages such as Bean, DAO, and Servlet
 - Connecting frontend pages with backend Java components
+- Organizing Java code using Bean, DAO, and Servlet packages
+- Deploying web applications using Apache Tomcat
+- Managing source code using Git and GitHub
+- Protecting database credentials using `.gitignore`
 
-
+---
 
 ## 🔮 Future Enhancements
 
@@ -276,14 +399,21 @@ The following features can be added in future versions:
 - Improved inventory and stock management
 - Responsive user interface
 - Better exception handling and error pages
-- Migration from JSP/Servlet architecture to Spring Boot
-- RESTful APIs using Spring Boot
-- JPA/Hibernate for database operations
+- Migration to Spring Boot
+- Development of RESTful APIs using Spring Boot
+- JPA/Hibernate integration
 - React-based frontend
 
+---
 
 ## 👩‍💻 Developer
 
 **Vaishnavi Bhakad**
 
 Aspiring Java Full Stack Developer
+
+---
+
+## ⭐ Project
+
+If you find this project useful or interesting, feel free to explore the repository and provide feedback.
