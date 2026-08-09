@@ -349,19 +349,29 @@ src/main/java/com/dao/
 
 ## 📷 Screenshots
 
-Screenshots of the application will be added here.
+### Admin Login
 
-Planned screenshots include:
+![Admin Login](Screenshots/Admin-login.png)
 
-- Admin Login
-- Admin Dashboard
-- Add Product
-- View Products
-- Update/Delete Product
-- Customer Registration
-- Customer Login
-- Customer Product View
-- Buy Product
+### Admin Dashboard
+
+![Admin Dashboard](Screenshots/Admin-dashboard.png)
+
+### Product Management
+
+![Product Management](Screenshots/Admin-product-list.png)
+
+### Customer Login
+
+![Customer Login](Screenshots/Customer-login.png)
+
+### Customer Product View
+
+![Customer Product View](Screenshots/Customer-view-product.png)
+
+### Buy Product
+
+![Buy Product](Screenshots/Customer-buy-product.png)
 
 ---
 
