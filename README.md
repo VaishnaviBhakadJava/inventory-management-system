@@ -357,9 +357,9 @@ src/main/java/com/dao/
 
 ![Admin Dashboard](Screenshots/Admin-dashboard.png)
 
-### Product Management
+### Admin Product List
 
-![Product Management](Screenshots/Admin-product-list.png)
+![Admin Product List](Screenshots/Admin-product-list.png)
 
 ### Customer Login
 
@@ -369,9 +369,9 @@ src/main/java/com/dao/
 
 ![Customer Product View](Screenshots/Customer-view-product.png)
 
-### Buy Product
+### Customer Buy Product
 
-![Buy Product](Screenshots/Customer-buy-product.png)
+![Customer Buy Product](Screenshots/Customer-buy-product.png)
 
 ---
 
